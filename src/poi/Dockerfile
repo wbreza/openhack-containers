@@ -43,13 +43,13 @@ ARG IMAGE_CREATE_DATE
 ARG IMAGE_VERSION
 ARG IMAGE_SOURCE_REVISION
 
-ENV SQL_USER="sqladmin" \
-    SQL_PASSWORD="changeme" \
-    SQL_SERVER="changeme.database.windows.net" \
-    SQL_DBNAME="mydrivingDB" \
+ENV SQL_USER="sa" \
+    SQL_PASSWORD="" \
+    SQL_SERVER="" \
+    SQL_DBNAME="myDrivingDB" \
     WEB_PORT=80 \
     WEB_SERVER_BASE_URI="http://0.0.0.0" \
-    ASPNETCORE_ENVIRONMENT="Development"
+    ASPNETCORE_ENVIRONMENT="Local"
 
 # Metadata as defined in OCI image spec annotations - https://github.com/opencontainers/image-spec/blob/master/annotations.md
 LABEL org.opencontainers.image.title="Trip Insights - POI (Points Of Interest) API" \

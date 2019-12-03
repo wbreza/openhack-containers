@@ -1,0 +1,26 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: tripviewer-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  backend:
+    serviceName: tripviewer
+    servicePort: 80
+  rules:
+    - host: tripviewer.com
+      http:
+        paths:
+          - path: /api/poi
+            backend:
+              serviceName: poi
+              servicePort: 80
+          - path: /api/trips
+            backend:
+              serviceName: trips
+              servicePort: 80
+          - path: /api/user
+            backend:
+              serviceName: userprofile
+              servicePort: 80

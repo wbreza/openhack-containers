@@ -6,10 +6,10 @@ ARG IMAGE_SOURCE_REVISION
 
 ENV PORT=80 \
     CONFIG_FILES_PATH="/secrets" \
-    SQL_USER="sqladmin" \
-    SQL_PASSWORD="changeme" \
-    SQL_SERVER="changeme.database.windows.net" \
-    SQL_DBNAME="mydrivingDB"
+    SQL_USER="sa" \
+    SQL_PASSWORD="" \
+    SQL_SERVER="" \
+    SQL_DBNAME="myDrivingDB"
 
 # Metadata as defined in OCI image spec annotations - https://github.com/opencontainers/image-spec/blob/master/annotations.md
 LABEL org.opencontainers.image.title="Trip Insights - User Profile API" \

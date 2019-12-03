@@ -1,0 +1,47 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: userprofile
+spec:
+  selector:
+    app: userprofile
+  ports:
+    - port: 80
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: userprofile
+spec:
+  selector:
+    matchLabels:
+      app: userprofile
+  template:
+    metadata:
+      labels:
+        app: userprofile
+    spec:
+      containers:
+        - name: userprofile
+          image: wabrezohcontainerregistry.azurecr.io/userprofile
+          env:
+            - name: SQL_SERVER
+              value: wabrez-openhack-sql.database.windows.net
+            - name: SQL_DBNAME
+              value: myDrivingDB
+            - name: SQL_USER
+              valueFrom:
+                secretKeyRef:
+                  name: db-credentials
+                  key: db-username
+            - name: SQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: db-credentials
+                  key: db-password
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 80

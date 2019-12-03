@@ -18,9 +18,10 @@ ARG IMAGE_CREATE_DATE
 ARG IMAGE_VERSION
 ARG IMAGE_SOURCE_REVISION
 
-
-ENV TRIPS_API_ENDPOINT="http://endpoint" \
-    USER_API_ENDPOINT="http://endpoint"
+ENV BING_MAPS_KEY="" \
+    TRIPS_API_ENDPOINT="" \
+    USER_API_ENDPOINT="" \
+    ASPNETCORE_ENVIRONMENT="Development"
 
 # Metadata as defined in OCI image spec annotations - https://github.com/opencontainers/image-spec/blob/master/annotations.md
 LABEL org.opencontainers.image.title="TripInsights - TripViewer Site" \
