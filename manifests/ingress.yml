@@ -9,7 +9,7 @@ spec:
     serviceName: tripviewer
     servicePort: 80
   rules:
-    - host: tripviewer.com
+    - host: tripviewer.breza.io
       http:
         paths:
           - path: /api/poi
